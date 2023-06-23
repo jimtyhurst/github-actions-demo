@@ -9,16 +9,13 @@
 #   --rm  removes/deletes the container when it is finished running.
 #   --publish 8000:80  exposing container's port 80 as port 8000 on the machine that is running the container.
 
-FROM python:3.10
+FROM python:3.10.12-bookworm
 
 WORKDIR /web-service
 
 COPY ./requirements.txt /web-service/requirements.txt
 
-RUN apt-get update \
-  && pip install --no-cache-dir --upgrade -r /web-service/requirements.txt \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir --upgrade -r /web-service/requirements.txt
 
 COPY ./app /web-service/app
 
