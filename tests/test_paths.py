@@ -6,7 +6,7 @@ client = TestClient(app)
 
 
 def build_expected_greeting(expected_name="World") -> str:
-    return f"Hello,{expected_name}!"
+    return f"Hello, {expected_name}!"
 
 
 def test_generic_greeting():
