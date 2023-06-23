@@ -49,6 +49,12 @@ To run the [hadolint]() linter on the Dockerfile:
 docker run --rm -i hadolint/hadolint < Dockerfile
 ```
 
+To run unit tests:
+
+```shell
+python -m pytest
+```
+
 ## License
 Copyright (c) 2023 Jim Tyhurst
 

@@ -1,4 +1,4 @@
-name: Lint
+name: Continuous Integration
 
 on:
   push:
@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
-    name: Run Linters
+  CI:
+    name: Code Quality Verifications
     runs-on: ubuntu-latest
 
     steps:
@@ -26,9 +26,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruff pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
       - name: Lint Python files with ruff
         run: |
           # Stops the build if there are Python syntax errors or undefined names.
           ruff --format=github --select=E9,F63,F7,F82 --target-version=py310 .
           # Uses default set of ruff rules with GitHub Annotations.
           ruff --format=github --target-version=py310 .
+
+      - name: Run unit tests
+        run: |
+          pytest
