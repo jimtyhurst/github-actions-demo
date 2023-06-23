@@ -2,12 +2,12 @@
 
 Simple demonstration of GitHub Actions.
 
-The application is a simple "Hello World" web service, implemented in
+The application is a simple "Hello World" web service, implemented with
 [FastAPI](https://fastapi.tiangolo.com/).
 It returns a greeting as a JSON object.
 
 ## Developer instructions
-To run it locally in your development environment:
+To run the web service locally in your development environment:
 
 ```shell
 uvicorn main:app --reload
@@ -16,7 +16,7 @@ uvicorn main:app --reload
 To build a Docker image for this application:
 
 ```shell
-dkr build --rm -t jimtyhurst/github-actions-demo .
+docker build --rm -t jimtyhurst/github-actions-demo .
 ```
 
 To run that image:
@@ -47,6 +47,12 @@ To run the [hadolint]() linter on the Dockerfile:
 
 ```shell
 docker run --rm -i hadolint/hadolint < Dockerfile
+```
+
+To run the [ruff](https://pypi.org/project/ruff/) linter on Python code:
+
+```shell
+ruff .
 ```
 
 To run unit tests:
