@@ -9,7 +9,7 @@
 #   --rm  removes/deletes the container when it is finished running.
 #   --publish 8000:80  exposing container's port 80 as port 8000 on the machine that is running the container.
 
-FROM python:3.10
+FROM python:3.10.12-bookworm
 
 WORKDIR /web-service
 
