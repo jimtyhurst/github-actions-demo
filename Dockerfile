@@ -15,10 +15,7 @@ WORKDIR /web-service
 
 COPY ./requirements.txt /web-service/requirements.txt
 
-RUN apt-get update \
-  && pip install --no-cache-dir --upgrade -r /web-service/requirements.txt \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir --upgrade -r /web-service/requirements.txt
 
 COPY ./app /web-service/app
 
