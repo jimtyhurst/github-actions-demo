@@ -3,4 +3,6 @@ fastapi==0.98.0
 uvicorn==0.22.0
 
 # development dependencies
+httpx==0.24.1
+pytest==7.3.2
 ruff==0.0.275
