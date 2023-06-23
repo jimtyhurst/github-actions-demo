@@ -4,6 +4,7 @@ DEFAULT_NAME = "World"
 
 app = FastAPI()
 
+
 def generate_greeting(name=""):
     if name == "":
         name = DEFAULT_NAME

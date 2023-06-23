@@ -1,4 +1,4 @@
-name: hadolint
+name: Lint
 
 on:
   push:
@@ -8,15 +8,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  lint:
+    name: Run Linters
     runs-on: ubuntu-latest
 
     steps:
-      # Checks out repository under $GITHUB_WORKSPACE, so the job can access it.
+      # Checks out repository, so the job can access it.
       - uses: actions/checkout@v3
     
-      # Hadolint is a linter for the Dockerfile.
-      - name: Hadolint Action
+      - name: Hadolint Linter for Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: Dockerfile
+
+      - name: Python Linters
+        uses: wearerequired/lint-action@v2
+        with:
+          autopep8: true
