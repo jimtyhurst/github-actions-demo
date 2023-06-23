@@ -43,6 +43,12 @@ To test the app from the command line, using `curl`:
 curl http://localhost:8000/greeting
 ```
 
+To run the [hadolint]() linter on the Dockerfile:
+
+```shell
+docker run --rm -i hadolint/hadolint < Dockerfile
+```
+
 ## License
 Copyright (c) 2023 Jim Tyhurst
 
